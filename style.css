@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  main {
+    flex: 1 0 auto;
+}/* sticky footer end*/
+.container .row {
+    display: flex;
+    justify-items: center;
+    margin-right: 350px;
+    margin-top: 50px;
+}
+.btn.waves-effect.waves-light{
+    margin-left: 120px;
+}
+label{
+    font-size: large;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    color: black;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-align: center;
+}

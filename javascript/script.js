@@ -26,7 +26,23 @@ searchButton.on("click", function () {
         method: "GET",
     }).then(function (response) {
         console.log(response);
+
+        for (let i = 0; i < 5; i++) {
+            var breweryName = $("<h2>");
+            breweryName.text(response[i].name);
+            $(".breweryList").append(breweryName);
+
+            var breweryType = $("<p>");
+            breweryType.text("Brewery Type: " + response[i].brewery_type);
+            $(".breweryList").append(breweryType);
+
+            var street = $("<p>");
+            street.text("Address: " + response[i].street);
+            $(".breweryList").append(street);
+
+            var website = $("<p>");
+            website.text(response[i].website_url);
+            $(".breweryList").append(website);
+        }
     })
 });
-
-console.log("hello");

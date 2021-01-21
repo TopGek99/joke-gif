@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Beer Buddy</title>
 </head>
 
@@ -23,27 +23,97 @@
     </header>
     <main class="container">
         <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="col s6">
+                        <h1>Pick a Category</h1>
+                        <div class="col s6">
+                            <label>
+                                <input class="with-gap" name="group1" type="radio" />
+                                <span>Any</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" name="group1" type="radio" />
+                                <span>Custom</span>
+                            </label>
+                            <div class="col s4">
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Programming</span>
+                                </label>
+
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Misc</span>
+                                </label>
+
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Dark</span>
+                                </label>
+
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Pun</span>
+                                </label>
+
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Spooky</span>
+                                </label>
+
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Christmas</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"></div>
+                <h1>Pick a Joke Type</h1>
+                <div class="col s6">
+                    <label>
+                        <input class="with-gap" name="group1" type="radio" />
+                        <span>Single</span>
+                    </label>
+                    <label>
+                        <input class="with-gap" name="group1" type="radio" />
+                        <span>Two Parts</span>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <input id="search-text" type="text" placeholder="(optional)" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light" name="action" id="searchButton">Send Request
+                        </button>
+                        <button class="btn waves-effect waves-light" name="action" id="reset">Reset Form
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- appending Jokes here -->
+        <div class="row">
             <div class="col s6">
-                <input id="search-text" type="text" placeholder="search" />
-                <button class="btn waves-effect waves-light" name="action" id="searchButton">Submit
-                </button>
+                <div class="jokeSearched"></div>
             </div>
-
-            <!-- appending brewery list here -->
-            <div class="breweryList"></div>
-
-            <!-- <div class="col s1">
-            </div> -->
         </div>
-        <label>One beer please!</label>
-        <div class="input-field col s3">
-            <select>
-                <option value="" disabled selected>Choose your language</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
+        <div class="row">
+            <div class="col s6">
+                <div class="gipHy"></div>
+            </div>
         </div>
+
+
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -52,14 +122,3 @@
 </body>
 
 </html>
-
-<!-- 
-    psuedo code:
-html 
-    1. heading beer buddy with logo 
-    2. search button to search brewies 
-    3. space to show up brewies in the area listing top 5 
-    4. dropdown selector for language 
-    5. default question in english: "One beer please?"
-    6. when language selected, question changes language 
- -->

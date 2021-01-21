@@ -1,26 +1,43 @@
+/* sticky footer start
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
+
   main {
     flex: 1 0 auto;
-}/* sticky footer end*/
-.container .row {
+}
+/* sticky footer end*/
+
+/* .container .row {
     display: flex;
-    justify-items: center;
-    margin-right: 350px;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
+    width: 50%;
 }
+
+
 .btn.waves-effect.waves-light{
-    margin-left: 120px;
+    margin:0 auto;
+    display:block;
 }
-label{
+
+.card-panel.teal{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label, .white-text{
     font-size: large;
     font-weight: 600;
     font-family: 'Lato', sans-serif;
-    color: black;
     letter-spacing: 2px;
     text-transform: capitalize;
     text-align: center;
 }
+
+label{
+    color: black;
+} */ */

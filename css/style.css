@@ -40,4 +40,30 @@ label, .white-text{
 
 label{
     color: black;
-} */ */
+} */ 
+/* nav wrapper */
+.container{
+    padding: 50px 50px 50px 50px;
+    margin: auto;
+    border:double;
+    border-radius: 50px;
+    border-spacing: initial;
+}
+h1{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+.p-0{
+    border: solid darksalmon;
+    background-color: transparent;
+}
+.p1{
+    border: solid darksalmon;
+    background-color: transparent;
+    display: inline-block;
+}
+button{
+    
+}

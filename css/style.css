@@ -1,4 +1,4 @@
-/* sticky footer start
+ sticky footer start
 body {
     display: flex;
     min-height: 100vh;
@@ -8,9 +8,9 @@ body {
   main {
     flex: 1 0 auto;
 }
-/* sticky footer end*/
+ sticky footer end
 
-/* .container .row {
+ .container .row {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,4 +40,4 @@ label, .white-text{
 
 label{
     color: black;
-} */ */
+}

@@ -12,7 +12,10 @@ $(document).ready(function() {
         searchList = [];
         localStorage.setItem("searches",JSON.stringify(searchList));
     } else {
-        searchList = localStorage.getItem("searches");
+        searchList = JSON.parse(localStorage.getItem("searches"));
+        for (var i=0;i<searchList.length;i++) {
+
+        }
     }
 })
 
@@ -36,7 +39,11 @@ searchButton.on("click", function (event) {
                 $(".jokeSearched").append(response.joke);
             }
         } else {
-            $("form").append($("<p>").text("No joke found! Please try again"));
+            var errorMessage = $("<p>").text("No joke found! Please try again");
+            $("form").append(errorMessage);
+            setTimeout(function(){
+                errorMessage.remove();
+            },1000);
         }
 
         var gifURL = "https://api.giphy.com/v1/gifs/search?q=" + category.val() + "&api_key=dc6zaTOxFJmzC";

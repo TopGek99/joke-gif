@@ -1,5 +1,6 @@
 // var searchTerm = $("#search-text");
 var searchButton = $("#searchButton");
+var isJoke;
 
 // Joke api
 var category = $("#input_text");
@@ -15,7 +16,14 @@ searchButton.on("click", function (event) {
     }).then(function (response) {
         console.log(response);
 
-        $(".jokeSearched").append(response.joke);
+        isJoke = !response.error;
+        if (isJoke) {
+            $(".jokeSearched").append(response.joke);
+            
+        } else {
+            $("form").append($("<p>").text("No joke found! Please try again"));
+        }
+        
 
 
 
@@ -38,13 +46,16 @@ searchButton.on("click", function (event) {
             url: gifURL,
             method: "GET"
         }).then(function (response) {
+            console.log(isJoke);
+            if (isJoke) {
+                var imageUrl = response.data[0].images.fixed_height.url;
 
-            var imageUrl = response.data[0].images.fixed_height.url;
+                var gif = $("<img>");
 
-            var gif = $("<img>");
-
-            gif.attr("src", imageUrl);
-            $(".gipHy").append(gif);
+                gif.attr("src", imageUrl);
+                $(".gipHy").append(gif);
+            }
+            
         });
     });
 });

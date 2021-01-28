@@ -1,32 +1,96 @@
-// var searchTerm = $("#search-text");
 var searchButton = $("#searchButton");
+var resetButton = $("#reset");
+var jokeSearched = $(".jokeSearched");
+var searchTerm = $("#input_text");
+var gifDiv = $(".gipHy");
+var historyDiv = $("#history");
+var searchList;
+var isJoke;
 
 // Joke api
-var category = $("#input_text");
+
+
+$(document).ready(function() {
+    if (localStorage.getItem("searches") == null) {
+        searchList = [];
+        localStorage.setItem("searches",JSON.stringify(searchList));
+    } else {
+        searchList = JSON.parse(localStorage.getItem("searches"));
+        for (var i=0;i<searchList.length;i++) {
+            var hButton = createHistoryButton(searchList[i]);
+            historyDiv.append(hButton);
+        }
+    }
+})
 
 searchButton.on("click", function (event) {
     event.preventDefault();
-    var queryURL = "https://v2.jokeapi.dev/joke/Any?contains=" + category.val(); 
-    // console.log(queryURL);
-    console.log(category);
+    searchList.push(searchTerm.val());
+    localStorage.setItem("searches",JSON.stringify(searchList));
+    showJoke(searchTerm.val(),false);
+});
+
+resetButton.on("click", function(event) {
+    event.preventDefault();
+    gifDiv.empty();
+    $(".jokeSearched").empty();
+    searchTerm.val("");
+});
+
+function showJoke(keyword, isButton) {
+    var queryURL = "https://v2.jokeapi.dev/joke/Any?contains=%20" + keyword + "%20&blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
     $.ajax({
         url: queryURL,
         method: "GET",
-    }).then(function (response) {
-        console.log(response);
+    }).then(function (jokeResponse) {
+        jokeSearched.empty();
 
-        // Will need to have the user chose one of these, cannot figure out at this stage how to do both
-        // if type = single
-        console.log(response.joke);
+        isJoke = !jokeResponse.error;
+        if (isJoke) {
+            if (jokeResponse.type == "twopart") {
+                jokeSearched.append(jokeResponse.setup);
+                jokeSearched.append("\n"+jokeResponse.delivery);
+            } else {
+                jokeSearched.append(jokeResponse.joke);
+            }
+            if (!isButton) {
+                var hButton = createHistoryButton(keyword);
+                historyDiv.append(hButton);
+            }
+            showGIF(keyword);
+        } else {
+            var errorMessage = $("<p>").text("No joke found! Please try again");
+            $("form").append(errorMessage);
+            setTimeout(function(){
+                errorMessage.remove();
+            },1000);
+        }
+    });
+}
 
-        // if type = twopart
-        console.log(response.setup);
-        console.log(response.delivery);
+function showGIF(searchword) {
+    var gifURL = "https://api.giphy.com/v1/gifs/random?tag=" + searchword + "&api_key=OZnHKN9d6fdfIOqVaero2nouKah6hqfX";
+    $.ajax({
+        url: gifURL,
+        method: "GET"
+    }).then(function (giphyResponse) {
+        gifDiv.empty();
+        var imageUrl = giphyResponse.data.images.fixed_height.url;
+        console.log(giphyResponse.data.images.fixed_height.url);
 
-        // search string 
-        // need to append "&contains=" + searchterm to end of queryURL 
+        var gif = $("<img>");
 
-        // amount of jokes 
-        // need to append "&amount=" + number to end of queryURL 
-    })
-});
+        gif.attr("src", imageUrl);
+        gifDiv.append(gif);
+    });
+}
+
+function createHistoryButton(btnText) {
+    newHistoryButton = $("<button>");
+    newHistoryButton.text(btnText);
+    newHistoryButton.addClass("btn");
+    newHistoryButton.on("click",function(){
+        showJoke(btnText,true);
+    });
+    return newHistoryButton;
+}

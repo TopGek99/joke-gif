@@ -1,43 +1,31 @@
-/* sticky footer start*/
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+.container{
+    padding: 50px;
+    margin: 50px;
+    border: double;
+    border-radius: 50px;
+    border-spacing: initial;
 }
 
-  main {
-    flex: 1 0 auto;
-}
-/* sticky footer end*/
-
-.container .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    width: 50%;
+header {
+    background-color: blue;
+    height: 130px;
+    width: 100%;
 }
 
-
-.btn.waves-effect.waves-light{
-    margin:0 auto;
-    display:block;
+img {
+    width: 400px;
 }
 
-.card-panel.teal{
-    margin-left: auto;
-    margin-right: auto;
+.logo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
 }
 
-label, .white-text{
-    font-size: large;
-    font-weight: 600;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    text-align: center;
-}
-
-label{
-    color: black;
+.gipHy img{
+    width: 100%;
+    height: auto;
 }

@@ -7,9 +7,6 @@ var historyDiv = $("#history");
 var searchList;
 var isJoke;
 
-// Joke api
-
-
 $(document).ready(function() {
     if (localStorage.getItem("searches") == null) {
         searchList = [];

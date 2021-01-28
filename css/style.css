@@ -1,6 +1,6 @@
 .container{
-    padding: 50px;
-    margin: 50px;
+    padding: 5%;
+    margin-top: 25px;
     border: double;
     border-radius: 50px;
     border-spacing: initial;
@@ -14,13 +14,11 @@ header {
 
 img {
     width: 400px;
-    /* margin-left: 50px;
-    margin-right: 50px; */
 }
 
 .logo {
-    position: absolute;
-    top: 10%;
+    position: relative;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;

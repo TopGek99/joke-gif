@@ -1,7 +1,7 @@
 # Project 1 - Joke
 
 ## About Project
-The goal for this project was to create an app combining two different api's. To view this project, [click here](https://topgek99.github.io/project-1/). The first api chosen was a joke api that stores thousands of jokes and allows the user to search for a particular joke using key words. The second api was a gif api that brings up random gifs based on key words that the user has chosen. To combine the two, the key word that is chosen by the user brings up both a joke and a gif.
+The goal for this project was to create an app combining two different api's. To view this project, [click here](https://topgek99.github.io/joke-gif/). The first api chosen was a joke api that stores thousands of jokes and allows the user to search for a particular joke using key words. The second api was a gif api that brings up random gifs based on key words that the user has chosen. To combine the two, the key word that is chosen by the user brings up both a joke and a gif.
 
 USER STORY
 
